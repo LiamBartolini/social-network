@@ -1,0 +1,20 @@
+@model fake_social.Models.Post
+
+@{
+    ViewData["Title"] = "Add post";
+}
+
+<form method="post">
+    <div class="custom-file"></div>
+
+    <input type="file" class="custom-file-input" id="customFile" asp-for="Image">
+    <div class="form-group">
+        <label for="description">Enter description</label>
+        <textarea class="form-control" id="description" asp-for="Description"></textarea>
+
+        <label for="tags">Enter tags</label>
+        <textarea class="form-control" id="tags" asp-for="Tags"></textarea>
+    </div>
+
+    <input type="submit" value="Publish post">
+</form>
