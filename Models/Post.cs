@@ -9,5 +9,6 @@ namespace fake_social.Models
         public string Image { get; set; } = null!;
         public string? Description { get; set; }
         public string? Tags { get; set; }
+        public long FkIduser { get; set; }
     }
 }

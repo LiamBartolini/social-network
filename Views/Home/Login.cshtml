@@ -5,7 +5,7 @@
 }
 
 <div class="text-center">
-    <form method="post">
+    @* <form method="post"> *@
         <div class="form-group">
             <label for="username">Username</label>
             <input type="text" class="form-control" id="username" placeholder="Enter username" asp-for="Username" required>
@@ -19,6 +19,11 @@
             <label class="form-check-label" for="remeberMe">Check me out</label>
         </div>
 
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
+        
+
+        @* <a asp-action="Login" asp-route-id="@Model.Id"></a> *@
+        @* <button type="submit" class="btn btn-primary">Submit</button> *@
+        @* <input type="submit" class="btn btn-primary" value="Submit" asp-route-id="1"> *@
+        @* <a asp-controller="Social" asp-action="Profile" asp-route-id="2">Submit</a> *@
+    @* </form> *@
 </div>

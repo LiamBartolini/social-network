@@ -40,7 +40,8 @@ public class HomeController : Controller
             if (user.Username == userToLog.Username &&
                 user.Password == userToLog.Password) 
             {
-                return RedirectToAction("Profile", "Social");
+                // TempData["userId"] = userToLog.Id.ToString();
+                return RedirectToAction("Profile", "Social", userToLog.Id);
             }
         }
 
@@ -63,6 +64,46 @@ public class HomeController : Controller
         db.SaveChanges();
 
         return RedirectToAction("Login");
+    }
+
+    public IActionResult CreateCookie()
+    {
+        string key = "UserId", value = "HelloWorld";
+        CookieOptions cookieOptions = new CookieOptions{
+            Expires = DateTime.Now.AddDays(5)
+        };
+
+        Response.Cookies.Append(
+            key,
+            value,
+            cookieOptions
+        );
+
+        return View("Login");
+    }
+
+    public IActionResult ReadCookie()
+    {
+        string key = "UserId";
+        var cookieValue = Request.Cookies[key];
+
+        return View("Login");
+    }
+
+    public IActionResult DeleteCookie()
+    {
+        string key = "UserId", value = string.Empty;
+        CookieOptions cookieOptions = new CookieOptions{
+            Expires = DateTime.Now.AddDays(-1)
+        };
+
+        Response.Cookies.Append(
+            key,
+            value,
+            cookieOptions
+        );
+
+        return View("Login");
     }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

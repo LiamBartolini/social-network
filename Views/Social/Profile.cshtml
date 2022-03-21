@@ -1,5 +1,35 @@
+@model List<fake_social.Models.Post>
 @{
     ViewData["Title"] = "Profile";
 }
 
-<h1>Profile page</h1>
+<div class="text-center">
+    <h1>Welcome back</h1>
+    
+    <div class="container">
+        <div class="row">
+            @* design of a post *@
+            @for (int i = 0; i < Model.Count(); i++)
+            {
+                @* each 3 posts i create a new row *@
+                @if (i % 3 == 0) {
+                    <div class="row"></div>
+                }
+
+                <div class="col">
+                    @Model[i].Id
+                    <div class="row">
+                        <div class="col">
+                            <img src=@Model[i].Image height="100" width="100">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            @Model[i].Description
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>

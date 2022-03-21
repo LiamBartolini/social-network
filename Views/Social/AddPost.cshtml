@@ -7,7 +7,7 @@
 <form method="post">
     <div class="custom-file"></div>
 
-    <input type="file" class="custom-file-input" id="customFile" asp-for="Image">
+    <input type="file" class="custom-file-input" id="customFile" onchange="readURL(this)" accept="image/png">
     <div class="form-group">
         <label for="description">Enter description</label>
         <textarea class="form-control" id="description" asp-for="Description"></textarea>
@@ -15,6 +15,6 @@
         <label for="tags">Enter tags</label>
         <textarea class="form-control" id="tags" asp-for="Tags"></textarea>
     </div>
-
+    <input type="text" id="realPath" value="" asp-for="Image" hidden>
     <input type="submit" value="Publish post">
 </form>
